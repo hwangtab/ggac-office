@@ -1,0 +1,82 @@
+{
+  "name": "document",
+  "version": "1.0.0",
+  "packageManager": "pnpm@11.4.0",
+  "description": "A local web-based document editor based on OnlyOffice, allowing you to edit documents directly in your browser without server-side processing, ensuring your privacy and security.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --force",
+    "build": "sh ./bin/build.sh",
+    "build:pages": "node bin/build-pages.mjs",
+    "sitemap:lastmod": "node bin/sitemap-lastmod.mjs",
+    "build:single": "node bin/bundle_single_html.js",
+    "preview": "vite preview",
+    "tsc": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test --grep-invert @serial",
+    "test:e2e:serial": "playwright test --grep @serial --workers=1",
+    "test:e2e:ui": "playwright test --ui",
+    "docker:build": "docker build -t document:e2e .",
+    "test:e2e:docker": "sh ./bin/test-e2e-docker.sh",
+    "format": "node bin/archive-quality.mjs format",
+    "format:check": "node bin/archive-quality.mjs format:check",
+    "lint:ts": "node bin/archive-quality.mjs lint && tsc --noEmit",
+    "lint:docker": "docker compose -f docker-compose.yaml config --quiet",
+    "lint": "pnpm run lint:ts && pnpm run lint:docker",
+    "test:e2e:corpus": "playwright test test/e2e/corpus.spec.ts",
+    "test:archive": "node bin/evaluation-archive.mjs"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "keywords": [
+    "onlyoffice",
+    "document-editor",
+    "privacy",
+    "web-based",
+    "docx",
+    "xlsx",
+    "pptx",
+    "csv",
+    "wasm",
+    "webassembly",
+    "local-editor",
+    "browser-editor",
+    "document-converter",
+    "office-suite"
+  ],
+  "author": "ranuts",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranuts/document.git"
+  },
+  "homepage": "https://edit.chaxus.com/",
+  "bugs": {
+    "url": "https://github.com/ranuts/document/issues"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
+    "@vitest/coverage-v8": "^4.1.11",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^30.0.1",
+    "marked": "16.4.2",
+    "oxlint": "^1.78.0",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1",
+    "vitest": "^4.1.11"
+  },
+  "dependencies": {
+    "@khmyznikov/pwa-install": "^0.6.4",
+    "@ranuts/agent-core": "workspace:*",
+    "@ranuts/chat-ui": "workspace:*",
+    "@ranuts/converter": "workspace:*",
+    "@ranuts/shared": "workspace:*",
+    "ranui": "0.5.0-alpha.6",
+    "ranuts": "0.4.1-alpha.2"
+  }
+}
