@@ -9,7 +9,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; worker-src 'self' blob:; connect-src 'self' blob: data:; img-src 'self' blob: data:; font-src 'self' data: blob:; style-src 'self' 'unsafe-inline' blob:; frame-src 'self' blob:; media-src 'self' blob: data:; frame-ancestors 'self' https://ggac.kr https://www.ggac.kr http://localhost:3000 http://localhost:3101; form-action 'none'; base-uri 'self'; object-src 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:; worker-src 'self' blob:; connect-src 'self' blob: data:; img-src 'self' blob: data:; font-src 'self' data: blob:; style-src 'self' 'unsafe-inline' blob:; frame-src 'self' blob:; media-src 'self' blob: data:; frame-ancestors 'self' https://ggac.kr https://www.ggac.kr http://localhost:3000 http://localhost:3101 http://127.0.0.1:3000 http://127.0.0.1:3101; form-action 'none'; base-uri 'self'; object-src 'none'"
         },
         {
           "key": "Referrer-Policy",

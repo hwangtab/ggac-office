@@ -5,7 +5,7 @@
   **편집기 소스는 고치지 않았다.** 소스 제공(AGPL §13)은 원본 태그 링크로 한다.
 - 더한 파일(운영 설정만):
   - `vercel.json` — Vercel 정적 빌드·보안 헤더. CSP `connect-src 'self'`로 편집 중 문서가 외부로 나가지 못하게 하고,
-    `frame-ancestors`로 ggac(https://ggac.kr · https://www.ggac.kr)와 로컬 개발(3000)·E2E(3101)만 이 편집기를 넣을 수 있게 한다.
+    `frame-ancestors`로 ggac(https://ggac.kr · https://www.ggac.kr)와 로컬 개발(3000)·E2E(3101)만(localhost·127.0.0.1 둘 다 — Playwright는 127.0.0.1로 연다) 이 편집기를 넣을 수 있게 한다.
     `'self'`는 ONLYOFFICE 내부 iframe 때문에 빠지면 안 된다(조상 전체를 검사한다).
   - `public/purge.html` — `Clear-Site-Data`로 업무툴 로그아웃 때 이 편집기의 브라우저 저장소를 지운다.
 - 배포 주소: 별도 Vercel 프로젝트의 `*.vercel.app` 주소. **ggac.kr 하위 도메인으로 옮기지 않는다** —
