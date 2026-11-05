@@ -18,3 +18,8 @@
 - 원본: https://github.com/edwardkim/rhwp 태그 `v0.8.7`, MIT — `vendor/rhwp/rhwp-studio`(e2e·tests·샘플 제외 무수정) + `vendor/rhwp/LICENSE`.
 - WASM: 같은 버전 npm `@rhwp/core`를 빌드 때 `vendor/rhwp/pkg`로 풀어 쓴다(`ggac/build-rhwp.sh`).
 - 빌드 스위치: `RHWP_DISABLE_EXTERNAL_WEBFONTS=1`(함초롬 CDN 비상업 조건), `RHWP_WITHOUT_HWPCTRL=1`.
+- **빌드 때 패치 한 곳(2026-11-05)**: 내장(`?chrome=embed`) 모드가 숨기는 명령 목록(`src/ui/chrome-mode.ts`의
+  `EMBED_HIDDEN_FILE_COMMAND_IDS`)에서 `file:print`·`file:print-to-pdf`를 빼 인쇄·PDF 로 인쇄를 되살린다. 문서를 바꾸지 않는
+  출력 명령이라 내장 모드의 취지(호스트가 모르는 문서 교체 막기)와 부딪히지 않는다. `ggac/build-rhwp.sh`가 빌드 사본에만
+  적용하고 끝나면 원본을 되돌린다. 원본 목록이 바뀌어 패치가 안 맞으면 빌드를 멈춘다 — rhwp 를 올릴 때 다시 본다.
+  인쇄는 미리보기 **새 창**을 열므로 호스트(ggac)가 이 iframe 에 `allow-popups`를 준다(`src/work/lib/files/hwp-editor.ts`).
